@@ -1,4 +1,4 @@
 export enum Routes {
-  LANDING_PAGE = "/",
+  HOME_PAGE = "/",
   GAME_PAGE = "/game",
 }
