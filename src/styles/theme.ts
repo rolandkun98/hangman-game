@@ -41,4 +41,13 @@ export const theme = createTheme({
       },
     },
   },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"],
+        },
+      },
+    },
+  },
 });
