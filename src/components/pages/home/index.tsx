@@ -1,5 +1,5 @@
-import HangmanIcon from "@/components/elements/icons/hangman";
-import PageContainer from "@/components/elements/page-container";
+import HangmanIcon from "@/components/common-elements/icons/hangman";
+import PageContainer from "@/components/common-elements/page-container";
 import { useBreakpoints } from "@/hooks/use-breakpoints";
 import { HangmanPhases } from "@/utils/enums/hangman-phases";
 import { Routes } from "@/utils/enums/routes";
