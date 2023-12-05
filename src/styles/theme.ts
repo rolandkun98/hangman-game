@@ -33,7 +33,7 @@ export const theme = createTheme({
         fontSize: ".95rem",
       },
     },
-    body2: {
+    body1: {
       lineHeight: "1.3",
       fontSize: ".9rem",
       [breakpoints.down("sm")]: {
