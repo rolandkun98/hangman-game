@@ -28,9 +28,9 @@ export const theme = createTheme({
     },
     subtitle1: {
       lineHeight: "1.3",
-      fontSize: "1rem",
+      fontSize: "1.2rem",
       [breakpoints.down("sm")]: {
-        fontSize: ".95rem",
+        fontSize: "1rem",
       },
     },
     body1: {
