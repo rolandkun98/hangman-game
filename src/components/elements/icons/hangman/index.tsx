@@ -19,7 +19,7 @@ const HangmanIcon = ({
     <SvgIcon
       sx={{
         stroke: "#000",
-        strokeWidth: "0.25",
+        strokeWidth: "0.5",
         strokeLinecap: "round",
         fill: "none",
         height: height ? height : "8rem",
