@@ -1,7 +1,7 @@
 import { Box, Container, Paper } from "@mui/material";
 
 interface PageContainerProps {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 const PageContainer = ({ children }: PageContainerProps): JSX.Element => {
@@ -24,8 +24,9 @@ const PageContainer = ({ children }: PageContainerProps): JSX.Element => {
             height: "100%",
             width: "100%",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            padding: "8rem .5rem .5rem .5rem",
           }}
         >
           {children}
