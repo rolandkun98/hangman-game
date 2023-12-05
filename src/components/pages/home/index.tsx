@@ -1,24 +1,18 @@
 import HangmanIcon from "@/components/elements/icons/hangman";
 import PageContainer from "@/components/elements/page-container";
+import { useBreakpoints } from "@/hooks/use-breakpoints";
 import { HangmanPhases } from "@/utils/enums/hangman-phases";
 import { Routes } from "@/utils/enums/routes";
-import {
-  Box,
-  Button,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 
 const HomePage = (): JSX.Element => {
   const router = useRouter();
-  const theme = useTheme();
-  const isScreenLG = useMediaQuery(theme.breakpoints.up("sm"));
+  const breakpoints = useBreakpoints();
   const hangmanSize = useMemo(
-    () => (isScreenLG ? "10rem" : "8rem"),
-    [isScreenLG]
+    () => (breakpoints.isAboveSm ? "10rem" : "8rem"),
+    [breakpoints.isAboveSm]
   );
 
   return (
