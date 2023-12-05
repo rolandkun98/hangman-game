@@ -23,51 +23,41 @@ const HomePage = (): JSX.Element => {
 
   return (
     <PageContainer>
-      <Box
+      <Typography variant="h1">The Hangman</Typography>
+      <HangmanIcon
+        width={hangmanSize}
+        height={hangmanSize}
+        sx={{ margin: "1.5rem 0" }}
+        phase={HangmanPhases.PHASE_09}
+      />
+      <Typography variant="h2" sx={{ marginBottom: ".7rem" }}>
+        Game instructions
+      </Typography>
+      <Typography variant="body1" sx={{ textAlign: "center" }}>
+        Choose the length of the word you want to guess. <br />
+        Select the letter you want to guess in the hidden word. <br />
+        If the chosen letter is in the word, it will appear in its position(s).
+        <br />
+        If not, a part of the hangman figure starts to appear.
+      </Typography>
+      <Typography
+        variant="body1"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: ".5rem",
+          marginTop: ".3rem",
+          fontWeight: 600,
+          textAlign: "center",
         }}
       >
-        <Typography variant="h1">The Hangman</Typography>
-        <HangmanIcon
-          width={hangmanSize}
-          height={hangmanSize}
-          sx={{ margin: "1.5rem 0" }}
-          phase={HangmanPhases.PHASE_09}
-        />
-        <Typography variant="h3" sx={{ marginBottom: ".7rem" }}>
-          Game instructions
-        </Typography>
-        <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-          Choose the length of the word you want to guess. <br />
-          Select the letter you want to guess in the hidden word. <br />
-          If the chosen letter is in the word, it will appear in its
-          position(s).
-          <br />
-          If not, a part of the hangman figure starts to appear.
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          sx={{
-            marginTop: ".3rem",
-            fontWeight: 600,
-            textAlign: "center",
-          }}
-        >
-          The objective is to guess a hidden word before a stick figure is
-          completely drawn.
-        </Typography>
-        <Button
-          variant="contained"
-          sx={{ marginTop: "5rem", width: "10rem" }}
-          onClick={() => router.push(Routes.GAME_PAGE)}
-        >
-          Got it!
-        </Button>
-      </Box>
+        The objective is to guess a hidden word before a stick figure is
+        completely drawn.
+      </Typography>
+      <Button
+        variant="contained"
+        sx={{ marginTop: "5rem", width: "10rem" }}
+        onClick={() => router.push(Routes.GAME_PAGE)}
+      >
+        Got it!
+      </Button>
     </PageContainer>
   );
 };
