@@ -11,14 +11,14 @@ export const theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: "4rem",
+      fontSize: "3.3rem",
       fontWeight: 600,
       userSelect: "none",
       [breakpoints.down("sm")]: {
         fontSize: "2rem",
       },
     },
-    h3: {
+    h2: {
       fontSize: "2rem",
       fontWeight: 600,
       userSelect: "none",
@@ -28,8 +28,16 @@ export const theme = createTheme({
     },
     subtitle1: {
       lineHeight: "1.3",
+      fontSize: "1rem",
       [breakpoints.down("sm")]: {
-        fontSize: ".9rem",
+        fontSize: ".95rem",
+      },
+    },
+    body2: {
+      lineHeight: "1.3",
+      fontSize: ".9rem",
+      [breakpoints.down("sm")]: {
+        fontSize: ".85rem",
       },
     },
   },
