@@ -1,6 +1,7 @@
 import HangmanIcon from "@/components/common-elements/icons/hangman";
 import PageContainer from "@/components/common-elements/page-container";
 import { useBreakpoints } from "@/hooks/use-breakpoints";
+import { GAME_TITLE } from "@/utils/constants/constants";
 import { HangmanPhases } from "@/utils/enums/hangman-phases";
 import { Routes } from "@/utils/enums/routes";
 import { Button, Typography } from "@mui/material";
@@ -17,7 +18,7 @@ const HomePage = (): JSX.Element => {
 
   return (
     <PageContainer>
-      <Typography variant="h1">The Hangman</Typography>
+      <Typography variant="h1">{GAME_TITLE}</Typography>
       <HangmanIcon
         width={hangmanSize}
         height={hangmanSize}
