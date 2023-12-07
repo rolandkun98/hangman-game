@@ -1,0 +1,6 @@
+export enum GameStatus {
+  PLAYER_WON = "PLAYER_WON",
+  PLAYER_LOST = "PLAYER_LOST",
+  ON_GOING = "ON_GOING",
+  NOT_STARTED = "NOT_STARTED",
+}
