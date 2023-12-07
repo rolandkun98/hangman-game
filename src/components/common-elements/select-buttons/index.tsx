@@ -1,16 +1,16 @@
 import { Box, Paper, SxProps } from "@mui/material";
 
-interface SelectButtonProps {
-  selectedValue: number | undefined;
-  setSelectedValue: (value: number) => void;
-  items: { value: number; text: string }[];
+interface SelectButtonsProps {
+  selectedValue?: number | string;
+  setSelectedValue: (value: number | string) => void;
+  items: { value: number | string; text: string; disabled?: boolean }[];
   columns: number;
   buttonSize: number;
   separateLastItem?: boolean;
   sx?: SxProps;
 }
 
-const SelectButton = ({
+const SelectButtons = ({
   selectedValue,
   setSelectedValue,
   items,
@@ -18,7 +18,7 @@ const SelectButton = ({
   buttonSize,
   separateLastItem,
   sx,
-}: SelectButtonProps): JSX.Element => {
+}: SelectButtonsProps): JSX.Element => {
   return (
     <Box
       sx={{
@@ -40,24 +40,27 @@ const SelectButton = ({
                 fontSize: `${buttonSize / 2}rem`,
                 fontWeight: 600,
                 userSelect: "none",
-                cursor: "pointer",
+                cursor: item.disabled ? "default" : "pointer",
                 margin: ".5rem",
-                boxShadow: 3,
+                boxShadow: item.disabled ? 1 : 3,
                 backgroundColor:
                   selectedValue === item.value
                     ? "primary.main"
                     : "background.paper",
-                color:
-                  selectedValue === item.value
-                    ? "background.paper"
-                    : "primary.main",
+                color: item.disabled
+                  ? "text.disabled"
+                  : selectedValue === item.value
+                  ? "background.paper"
+                  : "primary.main",
                 height: `${buttonSize}rem`,
                 width:
                   separateLastItem && index === items.length - 1
                     ? `${columns * buttonSize + columns * 0.5}rem`
                     : `${buttonSize}rem`,
               }}
-              onClick={() => setSelectedValue(item.value)}
+              onClick={
+                item.disabled ? undefined : () => setSelectedValue(item.value)
+              }
             >
               {item.text}
             </Paper>
@@ -74,4 +77,4 @@ const SelectButton = ({
   );
 };
 
-export default SelectButton;
+export default SelectButtons;
