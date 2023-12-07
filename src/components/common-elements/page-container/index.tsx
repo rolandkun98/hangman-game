@@ -27,6 +27,7 @@ const PageContainer = ({ children }: PageContainerProps): JSX.Element => {
             flexDirection: "column",
             alignItems: "center",
             padding: "8rem .5rem .5rem .5rem",
+            overflow: "scroll",
           }}
         >
           {children}
