@@ -1,6 +1,7 @@
 import SelectButtons from "@/components/common-elements/select-buttons";
-import { GAME_TITLE, RANDOM, RANDOM_VALUE } from "@/utils/constants/constants";
+import { RANDOM, RANDOM_VALUE } from "@/utils/constants/constants";
 import { Button, Typography } from "@mui/material";
+import { useTranslation, Trans } from "react-i18next";
 
 interface LengthSelectorProps {
   wordLengths: number[];
@@ -15,16 +16,19 @@ const LengthSelector = ({
   setSelectedLength,
   startGame,
 }: LengthSelectorProps): JSX.Element => {
+  const { t } = useTranslation();
   return (
     <>
       <Typography variant="h1" sx={{ marginBottom: "2rem" }}>
-        {GAME_TITLE}
+        {t("title")}
       </Typography>
       <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-        Let&apos;s play <strong>Hangman!</strong>
+        <Trans components={{ strong: <strong /> }}>
+          {t("gamePage.lengthSelector.subtitles.part1")}
+        </Trans>
       </Typography>
       <Typography variant="subtitle1">
-        How many letters do you want in your word?
+        {t("gamePage.lengthSelector.subtitles.part2")}
       </Typography>
       <SelectButtons
         selectedValue={selectedLength}
@@ -46,7 +50,7 @@ const LengthSelector = ({
         disabled={selectedLength === undefined}
         onClick={startGame}
       >
-        Let&apos;s play
+        {t("gamePage.lengthSelector.buttons.play")}
       </Button>
     </>
   );

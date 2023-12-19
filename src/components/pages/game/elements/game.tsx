@@ -11,6 +11,7 @@ import { alphabet } from "../data";
 import { GameStatus } from "@/utils/enums/game-status";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import { useTranslation, Trans } from "react-i18next";
 
 interface GameProps {
   endGame: () => void;
@@ -31,6 +32,7 @@ const Game = ({
   usedLetters,
   gameStatus,
 }: GameProps): JSX.Element => {
+  const { t } = useTranslation();
   const breakpoints = useBreakpoints();
   const router = useRouter();
 
@@ -61,7 +63,7 @@ const Game = ({
         }}
         onClick={() => router.push(Routes.HOME_PAGE)}
       >
-        Instructions
+        {t("gamePage.game.buttons.instructions")}
       </Button>
 
       <Box sx={{ display: "flex" }}>
@@ -83,19 +85,23 @@ const Game = ({
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 {(gameStatus === GameStatus.PLAYER_LOST && (
                   <>
-                    <SentimentVeryDissatisfiedIcon /> You&apos;ve lost
+                    <SentimentVeryDissatisfiedIcon />{" "}
+                    {t("gamePage.game.messages.playerLost")}
                   </>
                 )) ||
                   (gameStatus === GameStatus.PLAYER_WON && (
                     <>
-                      <SentimentSatisfiedAltIcon /> You&apos;ve won
+                      <SentimentSatisfiedAltIcon />{" "}
+                      {t("gamePage.game.messages.playerWon")}
                     </>
                   ))}
               </Box>
             </Typography>
           )}
           <Typography variant="subtitle1" sx={{ marginTop: "1rem" }}>
-            It&apos;s a {selectedWord.length} letter word
+            <Trans values={{ length: selectedWord.length }}>
+              {t("gamePage.game.wordLength")}
+            </Trans>
           </Typography>
           <Box sx={{ display: "flex", marginTop: "1rem" }}>
             {Array.from(selectedWord).map((letter, index) => (
@@ -112,14 +118,16 @@ const Game = ({
           </Box>
           {gameStatus === GameStatus.PLAYER_LOST && (
             <Typography variant="subtitle1" sx={{ marginTop: ".5rem" }}>
-              The word: {selectedWord}
+              <Trans values={{ selectedWord }}>
+                {t("gamePage.game.selectedWord")}
+              </Trans>
             </Typography>
           )}
           <Typography variant="subtitle1" sx={{ marginTop: "2.5rem" }}>
-            Mistakes: {mistakes}
+            <Trans values={{ mistakes }}>{t("gamePage.game.mistakes")}</Trans>
           </Typography>
           <Typography variant="body1" sx={{ marginTop: ".5rem" }}>
-            Play with a word
+            {t("gamePage.game.texts.element1")}
           </Typography>
           <SelectButton
             setSelectedValue={(value) => {
@@ -160,7 +168,7 @@ const Game = ({
                 }}
                 onClick={endGame}
               >
-                End game
+                {t("gamePage.game.buttons.endGame")}
               </Button>
             )}
             <Button
@@ -168,7 +176,7 @@ const Game = ({
               variant="contained"
               sx={{ width: "13rem" }}
             >
-              Start new game
+              {t("gamePage.game.buttons.newGame")}
             </Button>
           </Box>
         </Box>

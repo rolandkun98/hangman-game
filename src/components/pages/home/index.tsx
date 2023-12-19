@@ -1,14 +1,15 @@
 import HangmanIcon from "@/components/common-elements/icons/hangman";
 import PageContainer from "@/components/common-elements/page-container";
 import { useBreakpoints } from "@/hooks/use-breakpoints";
-import { GAME_TITLE } from "@/utils/constants/constants";
 import { HangmanPhases } from "@/utils/enums/hangman-phases";
 import { Routes } from "@/utils/enums/routes";
 import { Button, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 const HomePage = (): JSX.Element => {
+  const { t } = useTranslation();
   const router = useRouter();
   const breakpoints = useBreakpoints();
   const hangmanSize = useMemo(
@@ -18,7 +19,7 @@ const HomePage = (): JSX.Element => {
 
   return (
     <PageContainer>
-      <Typography variant="h1">{GAME_TITLE}</Typography>
+      <Typography variant="h1">{t("title")}</Typography>
       <HangmanIcon
         width={hangmanSize}
         height={hangmanSize}
@@ -26,14 +27,10 @@ const HomePage = (): JSX.Element => {
         phase={HangmanPhases.PHASE_09}
       />
       <Typography variant="h2" sx={{ marginBottom: ".7rem" }}>
-        Game instructions
+        {t("homePage.title")}
       </Typography>
       <Typography variant="body1" sx={{ textAlign: "center" }}>
-        Choose the length of the word you want to guess. <br />
-        Select the letter you want to guess in the hidden word. <br />
-        If the chosen letter is in the word, it will appear in its position(s).
-        <br />
-        If not, a part of the hangman figure starts to appear.
+        {t("homePage.instructions")}
       </Typography>
       <Typography
         variant="body1"
@@ -43,15 +40,14 @@ const HomePage = (): JSX.Element => {
           textAlign: "center",
         }}
       >
-        The objective is to guess a hidden word before a stick figure is
-        completely drawn.
+        {t("homePage.objective")}
       </Typography>
       <Button
         variant="contained"
         sx={{ marginTop: "5rem", width: "10rem" }}
         onClick={() => router.push(Routes.GAME_PAGE)}
       >
-        Got it!
+        {t("homePage.buttons.ok")}
       </Button>
     </PageContainer>
   );
