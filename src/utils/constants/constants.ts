@@ -1,4 +1,3 @@
-export const GAME_TITLE = "The Hangman";
 export const RANDOM_VALUE = 0;
 export const RANDOM = "Random";
 export const SELECTED_WORD_ID = "selectedWordId";
