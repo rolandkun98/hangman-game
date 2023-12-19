@@ -1,0 +1,39 @@
+{
+  "title": "The Hangman",
+  "homePage": {
+    "title": "Game instructions",
+    "instructions": "Choose the length of the word you want to guess. \n Select the letter you want to guess in the hidden word. \n If the chosen letter is in the word, it will appear in its position(s). \n If not, a part of the hangman figure starts to appear.",
+    "objective": "The objective is to guess a hidden word before a stick figure is completely drawn.",
+    "buttons": {
+      "ok": "Got it!"
+    }
+  },
+  "gamePage": {
+    "lengthSelector": {
+      "subtitles": {
+        "part1": "Let's play <strong>Hangman!</strong>",
+        "part2": "How many letters do you want in your word?"
+      },
+      "buttons": {
+        "play": "Let's play"
+      }
+    },
+    "game": {
+      "buttons": {
+        "instructions": "Instructions",
+        "endGame": "End Game",
+        "newGame": "Start new game"
+      },
+      "wordLength": "It's a {{length}} letter word",
+      "selectedWord": "The word: {{selectedWord}}",
+      "mistakes": "Mistakes: {{mistakes}}",
+      "texts": {
+        "element1": "Play with a word"
+      },
+      "messages": {
+        "playerLost": "You've lost",
+        "playerWon": "You've won"
+      }
+    }
+  }
+}
