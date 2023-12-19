@@ -5,6 +5,7 @@
 - React Next.js
 - TypeScript
 - Material UI
+- React i18next
 
 ## Getting Started
 
