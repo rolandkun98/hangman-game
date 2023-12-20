@@ -2,10 +2,15 @@ import { Box, Container, Paper, SxProps } from "@mui/material";
 
 interface PageContainerProps {
   children: React.ReactNode;
-  sx?: SxProps;
+  outterBoxSx?: SxProps;
+  paperSx?: SxProps;
 }
 
-const PageContainer = ({ children, sx }: PageContainerProps): JSX.Element => {
+const PageContainer = ({
+  children,
+  outterBoxSx,
+  paperSx,
+}: PageContainerProps): JSX.Element => {
   return (
     <Box
       sx={{
@@ -13,6 +18,7 @@ const PageContainer = ({ children, sx }: PageContainerProps): JSX.Element => {
         height: "100vh",
         backgroundColor: "rgb(243, 246, 249)",
         overflow: "scroll",
+        ...outterBoxSx,
       }}
     >
       <Container
@@ -29,7 +35,7 @@ const PageContainer = ({ children, sx }: PageContainerProps): JSX.Element => {
             flexDirection: "column",
             alignItems: "center",
             padding: "8rem .5rem .5rem .5rem",
-            ...sx,
+            ...paperSx,
           }}
         >
           {children}
