@@ -17,12 +17,12 @@ const PageContainer = ({ children, sx }: PageContainerProps): JSX.Element => {
       <Container
         maxWidth="lg"
         sx={{
-          height: "100vh",
+          height: "100%",
         }}
       >
         <Paper
           sx={{
-            height: "100vh",
+            height: "100%",
             width: "100%",
             display: "flex",
             flexDirection: "column",
