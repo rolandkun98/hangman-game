@@ -14,7 +14,7 @@ const GamePage = (): JSX.Element => {
       sx={
         gameLogic.gameStatus !== GameStatus.NOT_STARTED &&
         !breakpoints.isAboveSm
-          ? { paddingTop: "1rem" }
+          ? { paddingTop: "1rem", height: "100%" }
           : undefined
       }
     >
