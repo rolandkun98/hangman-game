@@ -11,10 +11,16 @@ const GamePage = (): JSX.Element => {
 
   return (
     <PageContainer
-      sx={
+      outterBoxSx={
         gameLogic.gameStatus !== GameStatus.NOT_STARTED &&
         !breakpoints.isAboveSm
-          ? { paddingTop: "1rem", height: "auto" }
+          ? { height: "auto" }
+          : undefined
+      }
+      paperSx={
+        gameLogic.gameStatus !== GameStatus.NOT_STARTED &&
+        !breakpoints.isAboveSm
+          ? { paddingTop: "1rem" }
           : undefined
       }
     >
