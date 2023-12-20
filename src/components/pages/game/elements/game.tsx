@@ -41,6 +41,7 @@ const Game = ({
       sx={{
         marginRight: breakpoints.isAboveSm ? "3rem" : undefined,
         alignSelf: breakpoints.isAboveSm ? undefined : "center",
+        marginTop: breakpoints.isAboveSm ? undefined : "1rem",
       }}
       width={breakpoints.isAboveSm ? "10rem" : "8rem"}
       height={breakpoints.isAboveSm ? "10rem" : "8rem"}
@@ -129,26 +130,28 @@ const Game = ({
           <Typography variant="body1" sx={{ marginTop: ".5rem" }}>
             {t("gamePage.game.texts.element1")}
           </Typography>
-          <SelectButton
-            setSelectedValue={(value) => {
-              checkLetter(value as string);
-            }}
-            columns={breakpoints.isAboveSm ? 7 : 5}
-            buttonSize={2}
-            sx={{
-              width: breakpoints.isAboveSm ? "30rem" : "auto",
-              marginTop: ".5rem",
-              marginBottom: "2rem",
-              justifyContent: "flex-start",
-            }}
-            items={alphabet.map((item) => ({
-              value: item,
-              text: item.toUpperCase(),
-              disabled:
-                gameStatus !== GameStatus.ON_GOING ||
-                usedLetters.includes(item),
-            }))}
-          />
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <SelectButton
+              setSelectedValue={(value) => {
+                checkLetter(value as string);
+              }}
+              columns={breakpoints.isAboveSm ? 7 : 5}
+              buttonSize={2}
+              sx={{
+                width: breakpoints.isAboveSm ? "30rem" : "80%",
+                marginTop: ".5rem",
+                marginBottom: "2rem",
+                justifyContent: "flex-start",
+              }}
+              items={alphabet.map((item) => ({
+                value: item,
+                text: item.toUpperCase(),
+                disabled:
+                  gameStatus !== GameStatus.ON_GOING ||
+                  usedLetters.includes(item),
+              }))}
+            />
+          </Box>
           <Box
             sx={{
               display: "flex",
@@ -174,7 +177,10 @@ const Game = ({
             <Button
               onClick={startNewGame}
               variant="contained"
-              sx={{ width: "13rem" }}
+              sx={{
+                width: "13rem",
+                marginBottom: breakpoints.isAboveSm ? undefined : "3rem",
+              }}
             >
               {t("gamePage.game.buttons.newGame")}
             </Button>

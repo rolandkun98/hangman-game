@@ -1,10 +1,11 @@
-import { Box, Container, Paper } from "@mui/material";
+import { Box, Container, Paper, SxProps } from "@mui/material";
 
 interface PageContainerProps {
   children: React.ReactNode;
+  sx?: SxProps;
 }
 
-const PageContainer = ({ children }: PageContainerProps): JSX.Element => {
+const PageContainer = ({ children, sx }: PageContainerProps): JSX.Element => {
   return (
     <Box
       sx={{
@@ -28,6 +29,7 @@ const PageContainer = ({ children }: PageContainerProps): JSX.Element => {
             alignItems: "center",
             padding: "8rem .5rem .5rem .5rem",
             overflow: "scroll",
+            ...sx,
           }}
         >
           {children}
